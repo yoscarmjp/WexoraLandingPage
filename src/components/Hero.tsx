@@ -72,7 +72,7 @@ export default function Hero() {
           <button disabled className="group relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 flex items-center space-x-3 hover:bg-white/10 hover:border-purple-500/50">
             <span>Ver demo</span>
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-          </a>
+          </button>
         ):(
           <a href='https://front.theoasiss.us/' className="group relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 flex items-center space-x-3 hover:bg-white/10 hover:border-purple-500/50">
             <span>Ver demo</span>
