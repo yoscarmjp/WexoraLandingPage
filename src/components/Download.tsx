@@ -1,4 +1,4 @@
-import { Download as DownloadIcon, Monitor, Smartphone, Globe, ArrowRight } from 'lucide-react';
+import { Download as DownloadIcon, Monitor, ArrowRight } from 'lucide-react';
 
 const platforms = [
   {

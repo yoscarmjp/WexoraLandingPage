@@ -1,4 +1,4 @@
-import { MessageSquare } from 'lucide-react';
+// Component without unused imports
 
 export default function Preview() {
   return (
