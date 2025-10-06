@@ -25,7 +25,8 @@ services:
       context: .
       target: production
     container_name: wexora-landing-prod
-    # No explicit ports or networks for Coolify - handled automatically
+    ports:
+      - "8181:8181"
     environment:
       - NODE_ENV=production
     # networks:

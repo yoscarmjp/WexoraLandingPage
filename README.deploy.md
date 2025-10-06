@@ -60,7 +60,7 @@ fly deploy
 ## 🔧 Características de Producción
 
 ✅ **Multi-stage build**: Optimiza el tamaño de la imagen final
-✅ **Nginx**: Servidor web rápido y eficiente
+✅ **Nginx**: Servidor web rápido y eficiente en puerto 8080
 ✅ **Compresión gzip**: Reduce el tamaño de transferencia
 ✅ **Headers de seguridad**: Protección contra vulnerabilidades comunes
 ✅ **SPA routing**: Soporte completo para React Router
@@ -105,7 +105,7 @@ El servidor mostrará automáticamente las URLs disponibles al iniciar.
 docker build -t wexora-landing .
 
 # Ejecutar producción localmente
-docker run -p 80:80 wexora-landing
+docker run -p 8080:8080 wexora-landing
 
 # Ver logs de construcción
 docker build --no-cache --progress=plain -t wexora-landing .
@@ -119,6 +119,7 @@ docker image prune -f
 ### Problema: Assets no se cargan correctamente
 - Asegúrate de que el `nginx.conf` esté correctamente configurado
 - Verifica que los archivos estén en `/usr/share/nginx/html`
+- Comprueba que nginx esté escuchando en el puerto 8080
 
 ### Problema: Routing no funciona en producción
 - El `nginx.conf` incluye configuración para SPA routing
