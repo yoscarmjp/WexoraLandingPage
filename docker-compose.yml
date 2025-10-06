@@ -20,8 +20,9 @@ services:
     stdin_open: true
     tty: true
     networks:
-      - wexora-network
+      - coolify
+    restart: unless-stopped
 
 networks:
-  wexora-network:
-    driver: bridge
+  coolify:
+    external: true

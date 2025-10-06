@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  # Production service
+  wexora-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      target: production
+    container_name: wexora-prod
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - coolify
+    restart: unless-stopped
+
+networks:
+  coolify:
+    external: true
