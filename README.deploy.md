@@ -50,7 +50,7 @@ fly deploy
 ## 📋 Archivos de Configuración
 
 - **`Dockerfile`**: Configuración multi-stage optimizada para desarrollo y producción
-- **`docker-compose.yml`**: Para desarrollo local y pruebas
+- **`docker-compose.yml`**: Para desarrollo local y pruebas (**incluye configuración de red Coolify**)
 - **`nginx.conf`**: Configuración de Nginx optimizada para producción
 - **`.dockerignore`**: Excluye archivos innecesarios del contexto de Docker
 - **`deploy.sh`**: Script opcional para optimizar el proceso de construcción
@@ -89,6 +89,16 @@ docker-compose up wexora-dev
 # Modo producción local
 docker-compose --profile production up wexora-prod
 ```
+
+**🌐 Acceso al servidor de desarrollo:**
+
+Cuando se inicie el contenedor de desarrollo, podrás acceder a la aplicación desde:
+
+- **Localhost:** http://localhost:5173
+- **Red interna:** http://0.0.0.0:5173
+- **Desde otros dispositivos:** Usa la IP de tu máquina en el puerto 5173
+
+El servidor mostrará automáticamente las URLs disponibles al iniciar.
 
 ## 📊 Comandos Útiles
 

@@ -16,6 +16,8 @@ services:
       - /app/.vite
     environment:
       - NODE_ENV=development
+    networks:
+      - coolify
 
   # Production environment
   wexora-prod:
@@ -27,5 +29,12 @@ services:
       - "80:80"
     environment:
       - NODE_ENV=production
+    networks:
+      - coolify
     profiles:
       - production
+
+networks:
+  coolify:
+    external: true
+    name: coolify

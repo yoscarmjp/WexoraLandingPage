@@ -19,6 +19,12 @@ FROM base AS development
 # Copy source code
 COPY . .
 
+# Show network information when starting
+RUN echo "Development server will be available at:" && \
+    echo "  Local:   http://localhost:5173" && \
+    echo "  Network: http://0.0.0.0:5173" && \
+    echo ""
+
 # Expose development port
 EXPOSE 5173
 
