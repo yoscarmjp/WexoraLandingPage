@@ -23,7 +23,7 @@ COPY . .
 EXPOSE 5173
 
 # Start development server with hot reload
-CMD ["pnpm", "run", "dev", "--host", "0.0.0.0"]
+CMD ["pnpm", "run", "dev"]
 
 # Production build stage
 FROM base AS build
