@@ -4,6 +4,8 @@ Este proyecto está optimizado para desplegarse en plataformas como **Coolify**,
 
 ## 🌟 Inicio Rápido
 
+## 🚀 Inicio Rápido
+
 ### Coolify (Auto-hosted)
 
 1. **Conecta tu repositorio**: En tu panel de Coolify, conecta tu repositorio de Git
@@ -15,7 +17,7 @@ Este proyecto está optimizado para desplegarse en plataformas como **Coolify**,
    - **Deploy Settings**: Se configura automáticamente
 4. **Deploy automático**: Coolify construirá y desplegará usando el `Dockerfile`
 
-**Nota**: Coolify manejará automáticamente las redes y puertos, no necesitas configuración adicional de networking.
+**Nota**: El `docker-compose.yml` incluye la configuración de red `coolify` necesaria. Los puertos son manejados automáticamente por Coolify (no se especifican explícitamente en el archivo).
 
 ### Railway (Recomendado)
 
@@ -76,24 +78,20 @@ NODE_ENV=production
 # Render: Configurado por la plataforma
 ```
 
-**Nota**: Coolify y otras plataformas auto-hosted manejan automáticamente el networking y puertos, no necesitas configurar redes personalizadas en `docker-compose.yml`.
-
+**Nota**: Coolify y otras plataformas auto-hosted manejan automáticamente el networking y puertos. El `docker-compose.yml` incluye la configuración de red `coolify` necesaria para el funcionamiento correcto en estas plataformas.
 ## 🛠️ Desarrollo Local
 
 Para desarrollo local con Docker:
 
 ```bash
-# Modo desarrollo con hot-reload
+# Modo desarrollo con hot-reload (puerto 5173 especificado)
 docker-compose up wexora-dev
 
-# Modo producción local
+# Modo producción local (puerto 80 especificado)
 docker-compose --profile production up wexora-prod
 ```
 
-**🌐 Acceso al servidor de desarrollo:**
-
-Cuando se inicie el contenedor de desarrollo, podrás acceder a la aplicación desde:
-
+**Nota:** Para desarrollo local, los puertos están especificados explícitamente. Para despliegue en Coolify, los puertos son manejados automáticamente.
 - **Localhost:** http://localhost:5173
 - **Red interna:** http://0.0.0.0:5173
 - **Desde otros dispositivos:** Usa la IP de tu máquina en el puerto 5173
@@ -126,8 +124,9 @@ docker image prune -f
 - El `nginx.conf` incluye configuración para SPA routing
 - Asegúrate de que `try_files $uri $uri/ /index.html;` esté presente
 
-### Problema: Puerto ocupado
-- Cambia el puerto en `docker-compose.yml` si es necesario
+### Problema: Puerto ocupado (Desarrollo local)
+- Para desarrollo local: Cambia el puerto en `docker-compose.yml` si es necesario
+- Para Coolify: Los puertos son manejados automáticamente, no hay conflicto
 - Usa `docker-compose down` para detener contenedores anteriores
 
 ## 📞 Soporte

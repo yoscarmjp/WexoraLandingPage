@@ -19,14 +19,15 @@ services:
     networks:
       - coolify
 
-  # Production environment
+  # Production environment - No explicit port mapping for Coolify
   wexora-prod:
     build:
       context: .
       target: production
     container_name: wexora-landing-prod
-    ports:
-      - "80:80"
+    # Ports are managed automatically by Coolify
+    # ports:
+    #   - "80:80"
     environment:
       - NODE_ENV=production
     networks:
