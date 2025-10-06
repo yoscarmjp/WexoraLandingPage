@@ -50,7 +50,7 @@ COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 8080 (Coolify will handle external port mapping)
-EXPOSE 8181
+EXPOSE 8282
 
 # Add health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \

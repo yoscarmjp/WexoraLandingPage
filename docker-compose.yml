@@ -26,7 +26,7 @@ services:
       target: production
     container_name: wexora-landing-prod
     ports:
-      - "8181:8181"
+      - "8282:8282"
     environment:
       - NODE_ENV=production
     # networks:
