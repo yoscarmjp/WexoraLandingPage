@@ -1,28 +1,31 @@
 version: '3.8'
 
 services:
-  # Development service
+  # Development environment with hot reload
   wexora-dev:
     build:
       context: .
-      dockerfile: Dockerfile
       target: development
-    container_name: wexora-dev
+    container_name: wexora-landing-dev
     ports:
       - "5173:5173"
     volumes:
+      # Mount source code for hot reload
       - .:/app
       - /app/node_modules
+      - /app/.vite
     environment:
       - NODE_ENV=development
-    env_file:
-      - .env
-    stdin_open: true
-    tty: true
-    networks:
-      - coolify
-    restart: unless-stopped
 
-networks:
-  coolify:
-    external: true
+  # Production environment
+  wexora-prod:
+    build:
+      context: .
+      target: production
+    container_name: wexora-landing-prod
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    profiles:
+      - production
