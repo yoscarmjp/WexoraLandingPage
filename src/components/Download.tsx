@@ -75,7 +75,7 @@ export default function Download() {
                     <span>Bloqueado</span>
                   </button>
                 ) : platform.name !== 'Linux' && platform.name !== 'macOS' ? (
-                  <a href='../setup/WexoraSetup.exe' className="w-full group/btn relative overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 text-white py-3.5 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 hover:bg-white/20 hover:border-purple-500/50">
+                  <a href='../setup/WexoraSetupV1.exe' className="w-full group/btn relative overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 text-white py-3.5 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 hover:bg-white/20 hover:border-purple-500/50">
                     <DownloadIcon size={18} />
                     <span>Descargar</span>
                     <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
