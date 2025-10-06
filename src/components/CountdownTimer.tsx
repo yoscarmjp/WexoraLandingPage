@@ -1,8 +1,8 @@
-import { Clock, X } from 'lucide-react';
+import { Clock } from 'lucide-react';
 import { useCountdown } from '../contexts/CountdownContext';
 
 export default function CountdownTimer() {
-  const { isCountdownActive, timeRemaining, isDismissed, dismissCountdown, showCountdown } = useCountdown();
+  const { isCountdownActive, timeRemaining, showCountdown } = useCountdown();
 
   if (!isCountdownActive) {
     return null;
