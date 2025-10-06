@@ -1,6 +1,9 @@
-import { Download, ArrowRight, Sparkles } from 'lucide-react';
+import { Download, ArrowRight, Sparkles, Lock } from 'lucide-react';
+import { useCountdown } from '../contexts/CountdownContext';
 
 export default function Hero() {
+  const { isCountdownActive } = useCountdown();
+  
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-0 bg-gradient-to-br from-purple-950/50 via-black to-pink-950/30"></div>
@@ -16,7 +19,7 @@ export default function Hero() {
       <div className="relative max-w-7xl mt-8 flex flex-col mx-auto px-6 py-32 text-center z-10">
         <div className="inline-flex justify-center items-center space-x-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full px-6 py-3 group hover:border-purple-500/50 transition-all duration-300">
           <Sparkles size={16} className="text-purple-400" />
-          <span className="text-sm text-gray-300">Ahora disponible en todas las plataformas</span>
+          <span className="text-sm text-gray-300">La revolución de las aplicaciones de comunicación limpia y optimizada</span>
         </div>
 
         <div className="mb-8 inline-block">
@@ -51,12 +54,20 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+        {isCountdownActive ? (
+          <button disabled className="group relative overflow-hidden bg-gradient-to-r from-purple-600 to-pink-600 text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 flex items-center space-x-3 shadow-2xl shadow-purple-500/50 hover:shadow-purple-500/80 hover:scale-105">
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <Lock size={18} className="relative z-10" />
+          <span className="relative z-10 font-semibold">Bloqueado</span>
+        </button>
+        ):(
           <a href='../setup/WexoraSetup.exe' className="group relative overflow-hidden bg-gradient-to-r from-purple-600 to-pink-600 text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 flex items-center space-x-3 shadow-2xl shadow-purple-500/50 hover:shadow-purple-500/80 hover:scale-105">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <Download size={24} className="relative z-10" />
             <span className="relative z-10">Descargar ahora</span>
           </a>
-          <a href='http://147.185.221.30:11048/' className="group relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 flex items-center space-x-3 hover:bg-white/10 hover:border-purple-500/50">
+        )}
+          <a href='https://front.theoasiss.us/' className="group relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 flex items-center space-x-3 hover:bg-white/10 hover:border-purple-500/50">
             <span>Ver demo</span>
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </a>

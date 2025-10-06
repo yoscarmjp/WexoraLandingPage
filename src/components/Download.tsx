@@ -1,4 +1,5 @@
-import { Download as DownloadIcon, Monitor, ArrowRight } from 'lucide-react';
+import { Download as DownloadIcon, Lock, Monitor, ArrowRight } from 'lucide-react';
+import { useCountdown } from '../contexts/CountdownContext';
 
 const platforms = [
   {
@@ -22,6 +23,8 @@ const platforms = [
 ];
 
 export default function Download() {
+  const { isCountdownActive } = useCountdown();
+  
   return (
     <section id="download" className="relative py-32 bg-black overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/10 to-black"></div>
@@ -66,17 +69,21 @@ export default function Download() {
                   {platform.description}
                 </p>
 
-                {platform.name !== 'Linux' && platform.name !== 'macOS' ? (
+                {isCountdownActive ? (
+                  <button disabled className="w-full relative overflow-hidden bg-gray-600/50 backdrop-blur-xl border border-gray-500/50 text-gray-300 py-3.5 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 cursor-not-allowed opacity-60">
+                    <Lock size={18} />
+                    <span>Bloqueado</span>
+                  </button>
+                ) : platform.name !== 'Linux' && platform.name !== 'macOS' ? (
                   <a href='../setup/WexoraSetup.exe' className="w-full group/btn relative overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 text-white py-3.5 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 hover:bg-white/20 hover:border-purple-500/50">
                     <DownloadIcon size={18} />
                     <span>Descargar</span>
                     <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                   </a>
                 ) : (
-                  <button className="w-full group/btn relative overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 text-white py-3.5 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 hover:bg-white/20 hover:border-purple-500/50">
+                  <button disabled className="w-full group/btn relative overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 text-white py-3.5 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 hover:bg-white/20 hover:border-purple-500/50 opacity-50 cursor-not-allowed">
                     <DownloadIcon size={18} />
-                    <span>Descargar</span>
-                    <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                    <span>Próximamente</span>
                   </button>
                 )}
               </div>
@@ -94,10 +101,17 @@ export default function Download() {
               Accede a Exora directamente desde tu navegador sin necesidad de instalar nada.
               Mismas características, cero descargas.
             </p>
-            <a href='http://147.185.221.30:11048/' className="group/btn inline-flex items-center space-x-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 shadow-2xl shadow-purple-500/50 hover:shadow-purple-500/80 hover:scale-105">
-              <span>Abrir versión web</span>
-              <ArrowRight size={20} className="group-hover/btn:translate-x-1 transition-transform" />
-            </a>
+            {isCountdownActive ? (
+              <button disabled className="group/btn inline-flex items-center space-x-3 bg-gray-600 text-gray-300 px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 cursor-not-allowed opacity-60">
+                <Lock size={20} />
+                <span>Bloqueado hasta el lanzamiento</span>
+              </button>
+            ) : (
+              <a href='https://front.theoasiss.us/' className="group/btn inline-flex items-center space-x-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 shadow-2xl shadow-purple-500/50 hover:shadow-purple-500/80 hover:scale-105">
+                <span>Abrir versión web</span>
+                <ArrowRight size={20} className="group-hover/btn:translate-x-1 transition-transform" />
+              </a>
+            )}
           </div>
         </div>
       </div>
