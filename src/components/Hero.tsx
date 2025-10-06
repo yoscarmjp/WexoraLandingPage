@@ -67,10 +67,18 @@ export default function Hero() {
             <span className="relative z-10">Descargar ahora</span>
           </a>
         )}
+
+        {isCountdownActive ? (
+          <button disabled className="group relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 flex items-center space-x-3 hover:bg-white/10 hover:border-purple-500/50">
+            <span>Ver demo</span>
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          </a>
+        ):(
           <a href='https://front.theoasiss.us/' className="group relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 flex items-center space-x-3 hover:bg-white/10 hover:border-purple-500/50">
             <span>Ver demo</span>
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </a>
+        )}
         </div>
 
         <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-500">
