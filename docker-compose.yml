@@ -22,22 +22,6 @@ services:
     networks:
       - wexora-network
 
-  # Production service
-  wexora-prod:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: production
-    container_name: wexora-prod
-    ports:
-      - "80:80"
-    environment:
-      - NODE_ENV=production
-    networks:
-      - wexora-network
-    profiles:
-      - production
-
 networks:
   wexora-network:
     driver: bridge
