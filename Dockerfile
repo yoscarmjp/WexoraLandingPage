@@ -1,59 +1,58 @@
+# ------------------------
 # Build stage
+# ------------------------
 FROM node:20-alpine AS builder
-
-# Install pnpm
+# Instalar pnpm
 RUN npm install -g pnpm
 
-# Set working directory
 WORKDIR /app
 
-# Copy package files
+# Copiar package.json y pnpm-lock.yaml
 COPY package.json pnpm-lock.yaml ./
 
-# Install dependencies
+# Instalar dependencias
 RUN pnpm install --frozen-lockfile
 
-# Copy source code
+# Copiar el resto del código
 COPY . .
 
-# Build the application
+# Construir la aplicación
 RUN pnpm run build
 
+# ------------------------
 # Production stage
+# ------------------------
 FROM nginx:alpine AS production
 
-# Copy built files from builder stage
+# Copiar los archivos compilados
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Copy nginx configuration
+# Configuración de Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 80
+# Exponer puerto 80
 EXPOSE 80
 
-# Start nginx
+# Iniciar Nginx
 CMD ["nginx", "-g", "daemon off;"]
 
+# ------------------------
 # Development stage
+# ------------------------
 FROM node:20-alpine AS development
 
-# Install pnpm
 RUN npm install -g pnpm
 
-# Set working directory
 WORKDIR /app
 
-# Copy package files
 COPY package.json pnpm-lock.yaml ./
-
-# Install dependencies
 RUN pnpm install --frozen-lockfile
 
-# Copy source code
 COPY . .
 
-# Expose Vite dev server port
+# Exponer puerto de Vite
 EXPOSE 5173
 
-# Start development server
+# Iniciar servidor de desarrollo de Vite
 CMD ["pnpm", "run", "dev", "--host"]
+    
