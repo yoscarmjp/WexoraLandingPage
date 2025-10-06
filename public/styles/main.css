@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+body{
+    background-color: #0B060C;
+    font-size: 'inter', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 100%;
+    /* transition: all 200ms ease-in-out; */
+  }
+
+.blur-wrapper {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -20;
+  pointer-events: none;
+}
+
+
+@media (max-width: 768px) {
+  body {
+      overflow: hidden;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+      overflow: hidden;
+  }
+}
+
+.blur-point {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(200px);
+    opacity: 0.4;
+    z-index: -20;
+    pointer-events: none;
+}
+.top-left {
+  top: -150px;
+  left: -150px;
+  background: #231A2D;
+}
+.bottom-left {
+  bottom: -150px;
+  right: -150px;
+  background: #231A2D;
+}
+.top-right {
+  top: -150px;
+  right: -150px;
+  background: #231A2D;
+}
+
+.login-blur{
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.45);
+    border-radius: 16px;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    padding: 2rem;
+}
+
+.background-blur{
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 16px;
+}
