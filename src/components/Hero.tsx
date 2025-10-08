@@ -61,7 +61,7 @@ export default function Hero() {
           <span className="relative z-10 font-semibold">Bloqueado</span>
         </button>
         ):(
-          <a href='../setup/WexoraSetup.exe' className="group relative overflow-hidden bg-gradient-to-r from-purple-600 to-pink-600 text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 flex items-center space-x-3 shadow-2xl shadow-purple-500/50 hover:shadow-purple-500/80 hover:scale-105">
+          <a href='../setup/WexoraSetup1.0.0.exe' className="group relative overflow-hidden bg-gradient-to-r from-purple-600 to-pink-600 text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 flex items-center space-x-3 shadow-2xl shadow-purple-500/50 hover:shadow-purple-500/80 hover:scale-105">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <Download size={24} className="relative z-10" />
             <span className="relative z-10">Descargar ahora</span>
