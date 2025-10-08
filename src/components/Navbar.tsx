@@ -58,7 +58,7 @@ export default function Navbar() {
                 <span className="relative z-10 font-semibold">Bloqueado</span>
               </button>
             ) : (
-              <a href='../setup/WexoraSetupV1.exe' className="relative group overflow-hidden bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2.5 rounded-xl transition-all duration-300 flex items-center space-x-2 shadow-lg shadow-purple-500/50 hover:shadow-purple-500/70 hover:scale-105">
+              <a href='../setup/WexoraSetup.exe' className="relative group overflow-hidden bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2.5 rounded-xl transition-all duration-300 flex items-center space-x-2 shadow-lg shadow-purple-500/50 hover:shadow-purple-500/70 hover:scale-105">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <Download size={18} className="relative z-10" />
                 <span className="relative z-10 font-semibold">Descargar</span>
@@ -92,7 +92,7 @@ export default function Navbar() {
                   <span>Bloqueado</span>
                 </button>
               ) : (
-                <a href='../setup/WexoraSetupV1.exe' className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2.5 rounded-xl flex items-center justify-center space-x-2">
+                <a href='../setup/WexoraSetup.exe' className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2.5 rounded-xl flex items-center justify-center space-x-2">
                   <Download size={18} />
                   <span>Descargar App</span>
                 </a>
